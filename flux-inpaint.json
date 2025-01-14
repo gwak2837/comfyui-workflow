@@ -1,0 +1,585 @@
+{
+  "last_node_id": 12,
+  "last_link_id": 21,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        -771.1984252929688,
+        128.57516479492188
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1/flux1-dev-fp16.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "DualCLIPLoader",
+      "pos": [
+        -769.01220703125,
+        301.1243896484375
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1,
+            2
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "t5/google_t5-v1_1-xxl_encoderonly-fp16.safetensors",
+        "clip_l.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "VAELoader",
+      "pos": [
+        -765.634521484375,
+        491.330078125
+      ],
+      "size": [
+        307.9399719238281,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4,
+            14
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "flux1/ae.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "KSampler",
+      "pos": [
+        297.9747009277344,
+        126.58810424804688
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 6
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 15
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 16
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            3
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        403051188870424,
+        "randomize",
+        30,
+        1,
+        "dpm_adaptive",
+        "beta",
+        0.5
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncodeFlux",
+      "pos": [
+        -417.6958312988281,
+        130.20037841796875
+      ],
+      "size": [
+        406.8212585449219,
+        321.7910461425781
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            18
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "((4k, UHD, highly detailed, high quality, hyperrealistic, HDR, high resolution, sharp and detailed))",
+        "A hyperrealistic and highly detailed portrait of a beautiful korean. The photo is in 4K UHD quality with HDR effects. The image is high quality, high resolution, sharp and detailed.",
+        3.5
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -410.85498046875,
+        525.401611328125
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            19
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "text"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "InpaintModelConditioning",
+      "pos": [
+        39.14956283569336,
+        130.92153930664062
+      ],
+      "size": [
+        210,
+        138
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 18
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 19
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 14
+        },
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            15
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            16
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            17
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InpaintModelConditioning"
+      },
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 4,
+      "type": "VAEDecode",
+      "pos": [
+        657.4042358398438,
+        128.48690795898438
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 3
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            20
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "LoadImage",
+      "pos": [
+        -323.74090576171875,
+        801.3193359375
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13,
+            21
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            12
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-127874.89999999851.png [input]",
+        "image"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "Image Comparer (rgthree)",
+      "pos": [
+        911.6429443359375,
+        127.0872573852539
+      ],
+      "size": [
+        780.609375,
+        785.108154296875
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 20,
+          "dir": 3
+        },
+        {
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 21,
+          "dir": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "comparer_mode": "Slide"
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_axkyg_00001_.png&type=temp&subfolder=&rand=0.9865266335594756"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_axkyg_00002_.png&type=temp&subfolder=&rand=0.8824795572782655"
+          }
+        ]
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      7,
+      0,
+      2,
+      0,
+      "CLIP"
+    ],
+    [
+      2,
+      7,
+      0,
+      3,
+      0,
+      "CLIP"
+    ],
+    [
+      3,
+      6,
+      0,
+      4,
+      0,
+      "LATENT"
+    ],
+    [
+      4,
+      10,
+      0,
+      4,
+      1,
+      "VAE"
+    ],
+    [
+      6,
+      1,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      12,
+      9,
+      1,
+      11,
+      4,
+      "MASK"
+    ],
+    [
+      13,
+      9,
+      0,
+      11,
+      3,
+      "IMAGE"
+    ],
+    [
+      14,
+      10,
+      0,
+      11,
+      2,
+      "VAE"
+    ],
+    [
+      15,
+      11,
+      0,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      11,
+      1,
+      6,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      17,
+      11,
+      2,
+      6,
+      3,
+      "LATENT"
+    ],
+    [
+      18,
+      2,
+      0,
+      11,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      19,
+      3,
+      0,
+      11,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      20,
+      4,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      9,
+      0,
+      12,
+      1,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6115909044841499,
+      "offset": [
+        1543.188098145589,
+        268.74883740995705
+      ]
+    },
+    "ue_links": []
+  },
+  "version": 0.4
+}
