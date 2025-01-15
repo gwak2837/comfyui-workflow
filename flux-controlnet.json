@@ -369,12 +369,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_pcxcx_00051_.png&type=temp&subfolder=&rand=0.9419570162953004"
+            "url": "/api/view?filename=rgthree.compare._temp_pcxcx_00053_.png&type=temp&subfolder=&rand=0.9435546807663222"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_pcxcx_00052_.png&type=temp&subfolder=&rand=0.47649532742147005"
+            "url": "/api/view?filename=rgthree.compare._temp_pcxcx_00054_.png&type=temp&subfolder=&rand=0.0343576830727772"
           }
         ]
       ]
@@ -416,12 +416,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_hrkrt_00017_.png&type=temp&subfolder=&rand=0.8265846017230827"
+            "url": "/api/view?filename=rgthree.compare._temp_hrkrt_00019_.png&type=temp&subfolder=&rand=0.782656508444141"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_hrkrt_00018_.png&type=temp&subfolder=&rand=0.04351181979394103"
+            "url": "/api/view?filename=rgthree.compare._temp_hrkrt_00020_.png&type=temp&subfolder=&rand=0.8671150060327211"
           }
         ]
       ]
@@ -463,12 +463,12 @@
           {
             "name": "A",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_npsje_00049_.png&type=temp&subfolder=&rand=0.12987108988635354"
+            "url": "/api/view?filename=rgthree.compare._temp_npsje_00051_.png&type=temp&subfolder=&rand=0.3813737413171552"
           },
           {
             "name": "B",
             "selected": true,
-            "url": "/api/view?filename=rgthree.compare._temp_npsje_00050_.png&type=temp&subfolder=&rand=0.6393043973621231"
+            "url": "/api/view?filename=rgthree.compare._temp_npsje_00052_.png&type=temp&subfolder=&rand=0.8950255773991254"
           }
         ]
       ]
@@ -778,7 +778,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        568838251903189,
+        552772143432789,
         "randomize",
         30,
         1,
@@ -857,46 +857,6 @@
       ]
     },
     {
-      "id": 2,
-      "type": "CLIPTextEncodeFlux",
-      "pos": [
-        -68.4435806274414,
-        597.0171508789062
-      ],
-      "size": [
-        406.8212585449219,
-        321.7910461425781
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            17
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncodeFlux"
-      },
-      "widgets_values": [
-        "4k, UHD, highly detailed, high quality, hyperrealistic, HDR, high resolution, sharp and detailed, masterpiece, photography, a girl, pointing finger at viewer",
-        "A hyperrealistic and highly detailed portrait of a beautiful korean. The photo is in 4K UHD quality with HDR effects. The image is high quality, high resolution, masterpiece, sharp and detailed. A girl is pointing finger at viewer.",
-        3.5
-      ]
-    },
-    {
       "id": 27,
       "type": "KSampler",
       "pos": [
@@ -946,13 +906,53 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        616249235770383,
+        966806329899950,
         "randomize",
         30,
         1,
         "deis",
         "beta",
         0.25
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncodeFlux",
+      "pos": [
+        -68.4435806274414,
+        597.0171508789062
+      ],
+      "size": [
+        406.8212585449219,
+        321.7910461425781
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            17
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeFlux"
+      },
+      "widgets_values": [
+        "4k, UHD, highly detailed, high quality, hyperrealistic, HDR, high resolution, sharp and detailed, masterpiece, photography",
+        "A hyperrealistic and highly detailed portrait of a beautiful korean. The photo is in 4K UHD quality with HDR effects. The image is high quality, high resolution, masterpiece, sharp and detailed.",
+        3.5
       ]
     }
   ],
@@ -1234,10 +1234,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9849732675807892,
+      "scale": 0.9849732675807905,
       "offset": [
-        -747.5836580645176,
-        -419.13922905325734
+        951.7673345882943,
+        -298.3078625999084
       ]
     },
     "ue_links": []
