@@ -1,432 +1,184 @@
 {
-  "last_node_id": 10,
+  "last_node_id": 12,
   "last_link_id": 9,
   "nodes": [
     {
       "id": 1,
       "type": "UNETLoader",
-      "pos": [
-        -735.5443115234375,
-        -247.67430114746094
-      ],
-      "size": [
-        315,
-        82
-      ],
+      "pos": [-735.5443115234375, -247.67430114746094],
+      "size": [315, 82],
       "flags": {},
       "order": 0,
       "mode": 0,
       "inputs": [],
       "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            2
-          ],
-          "slot_index": 0
-        }
+        { "name": "MODEL", "type": "MODEL", "links": [2], "slot_index": 0 }
       ],
-      "properties": {
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "flux1/flux1-dev-fp16.safetensors",
-        "default"
-      ]
-    },
-    {
-      "id": 4,
-      "type": "CLIPTextEncodeFlux",
-      "pos": [
-        -382.041748046875,
-        -246.04908752441406
-      ],
-      "size": [
-        406.8212585449219,
-        321.7910461425781
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 1
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            3
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncodeFlux"
-      },
-      "widgets_values": [
-        "((4k, UHD, highly detailed, high quality, hyperrealistic, HDR, high resolution, sharp and detailed))",
-        "A hyperrealistic and highly detailed portrait of a beautiful korean. The photo is in 4K UHD quality with HDR effects. The image is high quality, high resolution, sharp and detailed.",
-        3.5
-      ]
-    },
-    {
-      "id": 2,
-      "type": "DualCLIPLoader",
-      "pos": [
-        -732.4013061523438,
-        -56.505455017089844
-      ],
-      "size": [
-        315,
-        106
-      ],
-      "flags": {},
-      "order": 1,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            1,
-            9
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoader"
-      },
-      "widgets_values": [
-        "t5/google_t5-v1_1-xxl_encoderonly-fp16.safetensors",
-        "clip_l.safetensors",
-        "flux"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "CLIPTextEncode",
-      "pos": [
-        -375.2008972167969,
-        149.1521453857422
-      ],
-      "size": [
-        400,
-        200
-      ],
-      "flags": {
-        "collapsed": false
-      },
-      "order": 5,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 9
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            4
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "text"
-      ]
-    },
-    {
-      "id": 5,
-      "type": "EmptyLatentImage",
-      "pos": [
-        -290.0047912597656,
-        424.406494140625
-      ],
-      "size": [
-        315,
-        106
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            5
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        1
-      ]
-    },
-    {
-      "id": 3,
-      "type": "KSampler",
-      "pos": [
-        71.38765716552734,
-        -244.83973693847656
-      ],
-      "size": [
-        315,
-        262
-      ],
-      "flags": {},
-      "order": 6,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "MODEL",
-          "link": 2
-        },
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": 3
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": 4
-        },
-        {
-          "name": "latent_image",
-          "type": "LATENT",
-          "link": 5
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            6
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "KSampler"
-      },
-      "widgets_values": [
-        28291919962480,
-        "randomize",
-        30,
-        1,
-        "dpm_adaptive",
-        "beta",
-        1
-      ]
+      "properties": { "Node name for S&R": "UNETLoader" },
+      "widgets_values": ["flux1/flux1-dev-fp16.safetensors", "default"]
     },
     {
       "id": 6,
       "type": "VAEDecode",
-      "pos": [
-        430.8171691894531,
-        -242.94093322753906
-      ],
-      "size": [
-        210,
-        46
-      ],
+      "pos": [430.8171691894531, -242.94093322753906],
+      "size": [210, 46],
       "flags": {},
       "order": 7,
       "mode": 0,
       "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 6
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 7
-        }
+        { "name": "samples", "type": "LATENT", "link": 6 },
+        { "name": "vae", "type": "VAE", "link": 7 }
       ],
       "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            8
-          ],
-          "slot_index": 0
-        }
+        { "name": "IMAGE", "type": "IMAGE", "links": [8], "slot_index": 0 }
       ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
+      "properties": { "Node name for S&R": "VAEDecode" },
       "widgets_values": []
     },
     {
       "id": 7,
       "type": "PreviewImage",
-      "pos": [
-        701.4163208007812,
-        -243.71926879882812
-      ],
-      "size": [
-        660.6279296875,
-        682.542724609375
-      ],
+      "pos": [701.4163208007812, -243.71926879882812],
+      "size": [660.6279296875, 682.542724609375],
       "flags": {},
       "order": 8,
       "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 8
-        }
-      ],
+      "inputs": [{ "name": "images", "type": "IMAGE", "link": 8 }],
       "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
+      "properties": { "Node name for S&R": "PreviewImage" },
       "widgets_values": []
     },
     {
       "id": 9,
       "type": "VAELoader",
-      "pos": [
-        -732.3871459960938,
-        134.1900634765625
+      "pos": [-732.3871459960938, 134.1900634765625],
+      "size": [310.10650634765625, 58],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        { "name": "VAE", "type": "VAE", "links": [7], "slot_index": 0 }
       ],
-      "size": [
-        310.10650634765625,
-        58
+      "properties": { "Node name for S&R": "VAELoader" },
+      "widgets_values": ["flux1/ae.safetensors"]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [71.38765716552734, -244.83973693847656],
+      "size": [315, 262],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        { "name": "model", "type": "MODEL", "link": 2 },
+        { "name": "positive", "type": "CONDITIONING", "link": 3 },
+        { "name": "negative", "type": "CONDITIONING", "link": 4 },
+        { "name": "latent_image", "type": "LATENT", "link": 5 }
       ],
+      "outputs": [
+        { "name": "LATENT", "type": "LATENT", "links": [6], "slot_index": 0 }
+      ],
+      "properties": { "Node name for S&R": "KSampler" },
+      "widgets_values": [133319598190519, "randomize", 30, 1, "deis", "beta", 1]
+    },
+    {
+      "id": 8,
+      "type": "CLIPTextEncode",
+      "pos": [-373.3915100097656, -245.6674041748047],
+      "size": [405.6364440917969, 76],
+      "flags": { "collapsed": true },
+      "order": 5,
+      "mode": 0,
+      "inputs": [{ "name": "clip", "type": "CLIP", "link": 9 }],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [4],
+          "slot_index": 0
+        }
+      ],
+      "properties": { "Node name for S&R": "CLIPTextEncode" },
+      "widgets_values": [""]
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncodeFlux",
+      "pos": [-369.5542907714844, -174.1087188720703],
+      "size": [406.8212585449219, 321.7910461425781],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [{ "name": "clip", "type": "CLIP", "link": 1 }],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [3],
+          "slot_index": 0
+        }
+      ],
+      "properties": { "Node name for S&R": "CLIPTextEncodeFlux" },
+      "widgets_values": [
+        "4k, UHD, highly detailed, high quality, hyperrealistic, HDR, high resolution, sharp and detailed",
+        "A hyperrealistic and highly detailed portrait of a beautiful korean. The photo is in 4K UHD quality with HDR effects. The image is high quality, high resolution, sharp and detailed",
+        3.5
+      ]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [-275.90118408203125, 232.50924682617188],
+      "size": [315, 106],
       "flags": {},
       "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            7
-          ],
-          "slot_index": 0
-        }
+        { "name": "LATENT", "type": "LATENT", "links": [5], "slot_index": 0 }
       ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
+      "properties": { "Node name for S&R": "EmptyLatentImage" },
+      "widgets_values": [1024, 1024, 1]
+    },
+    {
+      "id": 2,
+      "type": "DualCLIPLoader",
+      "pos": [-732.4013061523438, -56.505455017089844],
+      "size": [315, 106],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        { "name": "CLIP", "type": "CLIP", "links": [1, 9], "slot_index": 0 }
+      ],
+      "properties": { "Node name for S&R": "DualCLIPLoader" },
       "widgets_values": [
-        "flux1/ae.safetensors"
+        "clip_l.safetensors",
+        "t5/google_t5-v1_1-xxl_encoderonly-fp16.safetensors",
+        "flux"
       ]
     }
   ],
   "links": [
-    [
-      1,
-      2,
-      0,
-      4,
-      0,
-      "CLIP"
-    ],
-    [
-      2,
-      1,
-      0,
-      3,
-      0,
-      "MODEL"
-    ],
-    [
-      3,
-      4,
-      0,
-      3,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      4,
-      8,
-      0,
-      3,
-      2,
-      "CONDITIONING"
-    ],
-    [
-      5,
-      5,
-      0,
-      3,
-      3,
-      "LATENT"
-    ],
-    [
-      6,
-      3,
-      0,
-      6,
-      0,
-      "LATENT"
-    ],
-    [
-      7,
-      9,
-      0,
-      6,
-      1,
-      "VAE"
-    ],
-    [
-      8,
-      6,
-      0,
-      7,
-      0,
-      "IMAGE"
-    ],
-    [
-      9,
-      2,
-      0,
-      8,
-      0,
-      "CLIP"
-    ]
+    [1, 2, 0, 4, 0, "CLIP"],
+    [2, 1, 0, 3, 0, "MODEL"],
+    [3, 4, 0, 3, 1, "CONDITIONING"],
+    [4, 8, 0, 3, 2, "CONDITIONING"],
+    [5, 5, 0, 3, 3, "LATENT"],
+    [6, 3, 0, 6, 0, "LATENT"],
+    [7, 9, 0, 6, 1, "VAE"],
+    [8, 6, 0, 7, 0, "IMAGE"],
+    [9, 2, 0, 8, 0, "CLIP"]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6727499949325639,
-      "offset": [
-        1181.4140368813903,
-        642.5924034949845
-      ]
+      "scale": 0.9849732675807691,
+      "offset": [1164.5033115342414, 411.9805938631481]
     },
     "ue_links": []
   },

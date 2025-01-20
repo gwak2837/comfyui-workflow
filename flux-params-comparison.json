@@ -5,14 +5,8 @@
     {
       "id": 9,
       "type": "VAELoader",
-      "pos": [
-        466.0021057128906,
-        470.9247131347656
-      ],
-      "size": [
-        310.10650634765625,
-        58
-      ],
+      "pos": [466.0021057128906, 470.9247131347656],
+      "size": [310.10650634765625, 58],
       "flags": {},
       "order": 0,
       "mode": 0,
@@ -21,30 +15,19 @@
         {
           "name": "VAE",
           "type": "VAE",
-          "links": [
-            8
-          ],
-          "slot_index": 0
+          "links": [8],
+          "slot_index": 0,
+          "localized_name": "VAE"
         }
       ],
-      "properties": {
-        "Node name for S&R": "VAELoader"
-      },
-      "widgets_values": [
-        "flux1/ae.safetensors"
-      ]
+      "properties": { "Node name for S&R": "VAELoader" },
+      "widgets_values": ["flux1/ae.safetensors"]
     },
     {
       "id": 1,
       "type": "UNETLoader",
-      "pos": [
-        462.8449401855469,
-        89.06034088134766
-      ],
-      "size": [
-        315,
-        82
-      ],
+      "pos": [462.8449401855469, 89.06034088134766],
+      "size": [315, 82],
       "flags": {},
       "order": 1,
       "mode": 0,
@@ -53,31 +36,19 @@
         {
           "name": "MODEL",
           "type": "MODEL",
-          "links": [
-            10
-          ],
-          "slot_index": 0
+          "links": [10],
+          "slot_index": 0,
+          "localized_name": "MODEL"
         }
       ],
-      "properties": {
-        "Node name for S&R": "UNETLoader"
-      },
-      "widgets_values": [
-        "flux1/flux1-dev-fp16.safetensors",
-        "default"
-      ]
+      "properties": { "Node name for S&R": "UNETLoader" },
+      "widgets_values": ["flux1/flux1-dev-fp16.safetensors", "default"]
     },
     {
       "id": 7,
       "type": "VAEDecode",
-      "pos": [
-        1629.130126953125,
-        93.43926239013672
-      ],
-      "size": [
-        210,
-        46
-      ],
+      "pos": [1629.130126953125, 93.43926239013672],
+      "size": [210, 46],
       "flags": {},
       "order": 9,
       "mode": 0,
@@ -85,40 +56,28 @@
         {
           "name": "samples",
           "type": "LATENT",
-          "link": 15
+          "link": 15,
+          "localized_name": "samples"
         },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 8
-        }
+        { "name": "vae", "type": "VAE", "link": 8, "localized_name": "vae" }
       ],
       "outputs": [
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": [
-            16
-          ],
-          "slot_index": 0
+          "links": [16],
+          "slot_index": 0,
+          "localized_name": "IMAGE"
         }
       ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
+      "properties": { "Node name for S&R": "VAEDecode" },
       "widgets_values": []
     },
     {
       "id": 10,
       "type": "FluxSamplerParams+",
-      "pos": [
-        1258.5811767578125,
-        93.20226287841797
-      ],
-      "size": [
-        327.5999755859375,
-        286
-      ],
+      "pos": [1258.5811767578125, 93.20226287841797],
+      "size": [327.5999755859375, 286],
       "flags": {},
       "order": 8,
       "mode": 0,
@@ -126,62 +85,58 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 10
+          "link": 10,
+          "localized_name": "model"
         },
         {
           "name": "conditioning",
           "type": "CONDITIONING",
-          "link": 20
+          "link": 20,
+          "localized_name": "conditioning"
         },
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 11
+          "link": 11,
+          "localized_name": "latent_image"
         },
         {
           "name": "loras",
           "type": "LORA_PARAMS",
           "link": null,
-          "shape": 7
+          "shape": 7,
+          "localized_name": "loras"
         },
         {
           "name": "sampler",
           "type": "STRING",
           "link": 13,
-          "widget": {
-            "name": "sampler"
-          }
+          "widget": { "name": "sampler" }
         },
         {
           "name": "scheduler",
           "type": "STRING",
           "link": 14,
-          "widget": {
-            "name": "scheduler"
-          }
+          "widget": { "name": "scheduler" }
         }
       ],
       "outputs": [
         {
           "name": "latent",
           "type": "LATENT",
-          "links": [
-            15
-          ],
-          "slot_index": 0
+          "links": [15],
+          "slot_index": 0,
+          "localized_name": "latent"
         },
         {
           "name": "params",
           "type": "SAMPLER_PARAMS",
-          "links": [
-            17
-          ],
-          "slot_index": 1
+          "links": [17],
+          "slot_index": 1,
+          "localized_name": "params"
         }
       ],
-      "properties": {
-        "Node name for S&R": "FluxSamplerParams+"
-      },
+      "properties": { "Node name for S&R": "FluxSamplerParams+" },
       "widgets_values": [
         "?",
         "euler",
@@ -194,297 +149,84 @@
       ]
     },
     {
-      "id": 11,
-      "type": "SamplerSelectHelper+",
-      "pos": [
-        536.1375122070312,
-        671.9690551757812
-      ],
-      "size": [
-        315,
-        730
-      ],
-      "flags": {},
-      "order": 2,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            13
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SamplerSelectHelper+"
-      },
-      "widgets_values": [
-        true,
-        false,
-        false,
-        false,
-        true,
-        false,
-        false,
-        false,
-        false,
-        false,
-        true,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false,
-        false
-      ]
-    },
-    {
-      "id": 12,
-      "type": "SchedulerSelectHelper+",
-      "pos": [
-        899.8089599609375,
-        672.7412109375
-      ],
-      "size": [
-        327.5999755859375,
-        226
-      ],
+      "id": 3,
+      "type": "DualCLIPLoader",
+      "pos": [465.9879455566406, 280.22918701171875],
+      "size": [315, 106],
       "flags": {},
       "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            14
-          ],
-          "slot_index": 0
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [19],
+          "slot_index": 0,
+          "localized_name": "CLIP"
         }
       ],
-      "properties": {
-        "Node name for S&R": "SchedulerSelectHelper+"
-      },
+      "properties": { "Node name for S&R": "DualCLIPLoader" },
       "widgets_values": [
-        false,
-        false,
-        false,
-        false,
-        true,
-        true,
-        true,
-        false
+        "t5/google_t5-v1_1-xxl_encoderonly-fp16.safetensors",
+        "clip_l.safetensors",
+        "flux",
+        "default"
       ]
     },
     {
-      "id": 3,
-      "type": "DualCLIPLoader",
-      "pos": [
-        465.9879455566406,
-        280.22918701171875
+      "id": 14,
+      "type": "CLIPTextEncode",
+      "pos": [817.2487182617188, 84.37760925292969],
+      "size": [403.45721435546875, 303.4877014160156],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        { "name": "clip", "type": "CLIP", "link": 19, "localized_name": "clip" }
       ],
-      "size": [
-        315,
-        106
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [20],
+          "slot_index": 0,
+          "localized_name": "CONDITIONING"
+        }
       ],
+      "properties": { "Node name for S&R": "CLIPTextEncode" },
+      "widgets_values": [
+        "((4k, UHD, highly detailed, high quality, hyperrealistic, HDR, high resolution, sharp and detailed)), A hyperrealistic and highly detailed portrait of a beautiful korean. The photo is in 4K UHD quality with HDR effects. The image is high quality, high resolution, sharp and detailed."
+      ]
+    },
+    {
+      "id": 5,
+      "type": "EmptyLatentImage",
+      "pos": [904.8529052734375, 469.0281982421875],
+      "size": [315, 106],
       "flags": {},
       "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
         {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            19
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "DualCLIPLoader"
-      },
-      "widgets_values": [
-        "t5/google_t5-v1_1-xxl_encoderonly-fp16.safetensors",
-        "clip_l.safetensors",
-        "flux"
-      ]
-    },
-    {
-      "id": 14,
-      "type": "CLIPTextEncode",
-      "pos": [
-        817.2487182617188,
-        84.37760925292969
-      ],
-      "size": [
-        403.45721435546875,
-        303.4877014160156
-      ],
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 19
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            20
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "((4k, UHD, highly detailed, high quality, hyperrealistic, HDR, high resolution, sharp and detailed)), A hyperrealistic and highly detailed portrait of a beautiful korean. The photo is in 4K UHD quality with HDR effects. The image is high quality, high resolution, sharp and detailed."
-      ]
-    },
-    {
-      "id": 13,
-      "type": "PlotParameters+",
-      "pos": [
-        1871.53857421875,
-        95.41997528076172
-      ],
-      "size": [
-        327.5999755859375,
-        174
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 16
-        },
-        {
-          "name": "params",
-          "type": "SAMPLER_PARAMS",
-          "link": 17
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            18
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PlotParameters+"
-      },
-      "widgets_values": [
-        "none",
-        "none",
-        -1,
-        "false",
-        "changes only"
-      ]
-    },
-    {
-      "id": 5,
-      "type": "EmptyLatentImage",
-      "pos": [
-        904.8529052734375,
-        469.0281982421875
-      ],
-      "size": [
-        315,
-        106
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
           "name": "LATENT",
           "type": "LATENT",
-          "links": [
-            11
-          ],
-          "slot_index": 0
+          "links": [11],
+          "slot_index": 0,
+          "localized_name": "LATENT"
         }
       ],
-      "properties": {
-        "Node name for S&R": "EmptyLatentImage"
-      },
-      "widgets_values": [
-        1024,
-        1024,
-        1
-      ]
-    },
-    {
-      "id": 8,
-      "type": "PreviewImage",
-      "pos": [
-        2244.345458984375,
-        97.00150299072266
-      ],
-      "size": [
-        735.566162109375,
-        749.708740234375
-      ],
-      "flags": {},
-      "order": 11,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 18
-        }
-      ],
-      "outputs": [],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      },
-      "widgets_values": []
+      "properties": { "Node name for S&R": "EmptyLatentImage" },
+      "widgets_values": [1024, 1024, 1]
     },
     {
       "id": 15,
       "type": "Note",
-      "pos": [
-        1265.8751220703125,
-        440.2098693847656
-      ],
-      "size": [
-        323.56005859375,
-        142.49896240234375
-      ],
+      "pos": [1265.8751220703125, 440.2098693847656],
+      "size": [323.56005859375, 142.49896240234375],
       "flags": {},
-      "order": 6,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [],
@@ -494,109 +236,171 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 13,
+      "type": "PlotParameters+",
+      "pos": [1871.53857421875, 95.41997528076172],
+      "size": [327.5999755859375, 174],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 16,
+          "localized_name": "images"
+        },
+        {
+          "name": "params",
+          "type": "SAMPLER_PARAMS",
+          "link": 17,
+          "localized_name": "params"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [18],
+          "slot_index": 0,
+          "localized_name": "IMAGE"
+        }
+      ],
+      "properties": { "Node name for S&R": "PlotParameters+" },
+      "widgets_values": ["sampler", "scheduler", -1, "false", "changes only"]
+    },
+    {
+      "id": 8,
+      "type": "PreviewImage",
+      "pos": [2240.349853515625, 95.49095916748047],
+      "size": [900, 1310],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18,
+          "localized_name": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": { "Node name for S&R": "PreviewImage" },
+      "widgets_values": []
+    },
+    {
+      "id": 12,
+      "type": "SchedulerSelectHelper+",
+      "pos": [998.1471557617188, 666.549560546875],
+      "size": [218.39999389648438, 250],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [14],
+          "slot_index": 0,
+          "localized_name": "STRING"
+        }
+      ],
+      "properties": { "Node name for S&R": "SchedulerSelectHelper+" },
+      "widgets_values": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": 11,
+      "type": "SamplerSelectHelper+",
+      "pos": [683.7855834960938, 672.9755249023438],
+      "size": [270.7015380859375, 778],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [13],
+          "slot_index": 0,
+          "localized_name": "STRING"
+        }
+      ],
+      "properties": { "Node name for S&R": "SamplerSelectHelper+" },
+      "widgets_values": [
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
     }
   ],
   "links": [
-    [
-      8,
-      9,
-      0,
-      7,
-      1,
-      "VAE"
-    ],
-    [
-      10,
-      1,
-      0,
-      10,
-      0,
-      "MODEL"
-    ],
-    [
-      11,
-      5,
-      0,
-      10,
-      2,
-      "LATENT"
-    ],
-    [
-      13,
-      11,
-      0,
-      10,
-      4,
-      "STRING"
-    ],
-    [
-      14,
-      12,
-      0,
-      10,
-      5,
-      "STRING"
-    ],
-    [
-      15,
-      10,
-      0,
-      7,
-      0,
-      "LATENT"
-    ],
-    [
-      16,
-      7,
-      0,
-      13,
-      0,
-      "IMAGE"
-    ],
-    [
-      17,
-      10,
-      1,
-      13,
-      1,
-      "SAMPLER_PARAMS"
-    ],
-    [
-      18,
-      13,
-      0,
-      8,
-      0,
-      "IMAGE"
-    ],
-    [
-      19,
-      3,
-      0,
-      14,
-      0,
-      "CLIP"
-    ],
-    [
-      20,
-      14,
-      0,
-      10,
-      1,
-      "CONDITIONING"
-    ]
+    [8, 9, 0, 7, 1, "VAE"],
+    [10, 1, 0, 10, 0, "MODEL"],
+    [11, 5, 0, 10, 2, "LATENT"],
+    [13, 11, 0, 10, 4, "STRING"],
+    [14, 12, 0, 10, 5, "STRING"],
+    [15, 10, 0, 7, 0, "LATENT"],
+    [16, 7, 0, 13, 0, "IMAGE"],
+    [17, 10, 1, 13, 1, "SAMPLER_PARAMS"],
+    [18, 13, 0, 8, 0, "IMAGE"],
+    [19, 3, 0, 14, 0, "CLIP"],
+    [20, 14, 0, 10, 1, "CONDITIONING"]
   ],
   "groups": [],
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.7400249944258204,
-      "offset": [
-        412.3336987375524,
-        -90.94947586720019
-      ]
+      "scale": 0.9849732675807673,
+      "offset": [-7.724127805890292, -441.21699673915595]
     },
-    "ue_links": []
+    "ue_links": [],
+    "node_versions": {
+      "comfy-core": "0.3.12",
+      "ComfyUI_essentials": "33ff89fd354d8ec3ab6affb605a79a931b445d99"
+    }
   },
   "version": 0.4
 }
